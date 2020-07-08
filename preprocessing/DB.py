@@ -5,7 +5,7 @@ Author: Fred Roy
 Date created: 2019-12-13
 Date last modified:
 Python Version: 3.?
-Description: Classes related to database management 
+Description: Classes related to database management
 
 ################################################
 """
@@ -88,6 +88,7 @@ class Schema:
     def get_name(self):
         return self.name
 
+
 class Table:
     def __init__(self, cur, name, schema, column_name):
         self.cur = cur
@@ -106,7 +107,9 @@ class Table:
         else:
             self.cur.execute("CREATE TABLE IF NOT EXISTS {}.{}(id integer)".format(self.schema, self.name))
 
-
+    def extract(self, file):
+        with open(file, 'r', errors='ignore') as f:
+            self.cur.copy_from(f, self.schema + '.' + self.name, sep=";", null='')
 
 
 
@@ -118,6 +121,8 @@ class DBPostgresql:
         self.schema = schema
         self.table = table
         self.create_table()
+
+
 
     def create_table(self):
         self.cur.execute("DROP TABLE IF EXISTS {}.{} CASCADE".format(self.schema, self.table))
@@ -146,3 +151,23 @@ class PreTreatedDB (DBPostgresql):
         DBPostgresql.__init__(self, cur, schema_name, table_name)
 
 
+def main():
+    file_name = "ID_31823_20181110_104529.csv"
+
+    file_name_test = "test2.csv"
+
+    user = "postgres"
+    password = "f1p2e3"
+    port = "5432"
+    database = "driving_cycles"
+
+    db_controller = DBController(user, password, port, database)
+    for schema in db_controller.get_schemas():
+        print(schema)
+
+    schema_name = 'raw_data'
+    db_controller.create_schema(schema_name)
+    for schema in db_controller.get_schemas():
+        print(schema)
+
+    table = Table(db_controller.cur, file_name, schema_name, [])
