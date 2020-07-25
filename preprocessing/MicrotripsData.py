@@ -3,7 +3,6 @@ Description: The class MicrotripsData is used to create the microtrips from the 
 
 """
 
-
 import pandas as pd
 from functools import reduce
 

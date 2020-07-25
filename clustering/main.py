@@ -16,7 +16,7 @@ PCA_columns = ['T', 'S', 'FuelR', 'FuelR_r', 'FuelRate_std', 'V', 'V_r', 'V_m', 
 #clustering_controller.PCA(0.80, PCA_columns)
 columns = ['V', 'FuelR', 'Acc']
 clustering_controller.select_clustering_columns(columns)
-clustering_controller.kmeans(10)
+clustering_controller.kmeans(6)
 clustering_controller.visualize_cluster3D()
 #clustering_controller.visualize_cluster()
 clustering_controller.save_csv('V_Acc_FuelR')

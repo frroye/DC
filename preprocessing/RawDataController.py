@@ -44,7 +44,7 @@ def find_files(main_path, column_names):
 
 
 class File:
-    def __init__(self, path, name, extension, column_name):
+    def __init__(self, path, name, extension, column_name=[]):
         self.path = path
         self.name = name
         self.extension = extension

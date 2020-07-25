@@ -1,7 +1,11 @@
+""" Description: """
+
+
 from os import listdir
 from os.path import isfile, join
 import pandas as pd
 import numpy as np
+import csv
 
 
 class AssessmentCriteriaCalculator:
@@ -21,140 +25,113 @@ class AssessmentCriteriaCalculator:
 
         self.raw_data = pd.concat(self.raw_data, axis=0, join='outer', ignore_index=False, keys=None,
                            levels=None, names=None, verify_integrity=False, copy=True)
+        self.AC = self.summarize_AC()
 
     def get_file(self, path="../data/clean_data/"):
         onlyfiles = [f for f in listdir(path) if isfile(join(path, f))]
         return onlyfiles
 
+    def summarize_AC(self):
+        total_time = self.compute_duration()
+        p_v = {'V': self.compute_V(),
+               'Vr': self.compute_Vr(),
+               'Vm': self.compute_Vm(),
+               'FuelR': self.compute_FuelR(),
+               'FuelRr': self.compute_FuelRr(),
+               'Acc': self.compute_acc(),
+               'Dcc': self.compute_dcc(),
+               'Acc2': self.compute_a2(),
+               'Idle_p': self.compute_idle_p() / total_time,
+               'Acc_p': self.compute_acc_p() / total_time,
+               'Dcc_p': self.compute_dcc_p() / total_time,
+               'Cru_p': self.compute_cru_p() / total_time,
+               'Cre_p': self.compute_cre_p() / total_time,
+               'SAFD': self.compute_SAFD()
+               }
+        return p_v
+
+    def get_AC(self):
+        return self.AC
+
+    def save_csv(self):
+        file_name = "../data/assessment_criteria/" + 'assessment_criteria' + ".csv"
+        print(self.AC)
+        #pd.DataFrame.from_dict(self.AC).to_csv(file_name, sep=";")
+        with open(file_name, 'w') as f:
+            for key in self.AC.keys():
+                f.write("%s,%s\n" % (key, self.AC[key]))
+
     def compute_SAFD(self):
+        """Compute the SAFD (speed and acceleration distribution) of the database"""
         self.raw_data['AccCluster'] = self.raw_data['Acc'].apply(lambda x: findAcluster(x))
         self.raw_data['VCluster'] = self.raw_data['Speed'].apply(lambda x: findVcluster(x))
         SAFD = np.zeros((6, 7))
         df = self.raw_data[['AccCluster', 'VCluster', 'Duration']].groupby(['AccCluster', 'VCluster']).sum()
         df['P'] = df['Duration']/df['Duration'].sum()
-        print(df)
-
-
-    def compute_T(self):
-        """Compute the total time of the microtrips"""
-        df = self.rawData.get_df()[['Seg', 'Duration']].groupby(['Seg']).sum()
-        df.rename(columns={'Duration': 'T'}, inplace=True)
-        return df
-
-    def compute_S(self):
-        """Compute the total travelled distance of the microtrips"""
-        df = self.rawData.get_df()[['Seg', 'DeltaDistance']].groupby(['Seg']).sum()
-        df.rename(columns={'DeltaDistance': 'S'}, inplace=True)
-        return df
-
-    def compute_FuelR(self):
-        """Compute the average fuel rate of the microtrip"""
-        df = self.rawData.get_df()[['Seg', 'FuelRate']].groupby(['Seg']).mean()
-        df.rename(columns={'FuelRate': 'FuelR'}, inplace=True)
-        return df
-
-    def compute_FuelRr(self):
-        """Compute the average running fuel rate of the microtrip"""
-        df = self.rawData.get_df()
-        df = df[['Seg', 'FuelRate']][df['FuelRate'] > 0].groupby(['Seg']).mean()
-        df.rename(columns={'FuelRate': 'FuelR_r'}, inplace=True)
-        return df
-
-    def compute_FuelRstd(self):
-        """Compute the fuel rate standard deviation of the microtrips"""
-        df = (self.rawData.get_df()[['Seg', 'FuelRate']]).groupby(['Seg']).std()
-        df.rename(columns={'FuelRate': 'FuelRate_std'}, inplace=True)
-        return df
+        df = df.drop(columns=['Duration'])
+        df = df['P'].to_dict()
+        for cluster in df:
+            a = int(cluster[0])
+            v = int(cluster[1])
+            SAFD[v, a] = df[a, v]
+        return SAFD
 
     def compute_V(self):
-        """Compute the average speed of the microtrips"""
-        df = self.rawData.get_df()[['Seg', 'Speed']].groupby(['Seg']).mean()
-        df.rename(columns={'Speed': 'V'}, inplace=True)
-        return df
+        """Compute the average speed of the database"""
+        return self.raw_data[['Speed']].mean()[0]
 
     def compute_Vr(self):
-        """Compute the average running speed of the microtrips"""
-        df = self.rawData.get_df()
-        df = df[['Seg', 'Speed']][df['Speed'] > 0].groupby(['Seg']).mean()
-        df.rename(columns={'Speed': 'V_r'}, inplace=True)
-        return df
+        """Compute the average running speed of the database"""
+        return self.raw_data[['Speed']][self.raw_data['Speed'] > 0].mean()[0]
 
     def compute_Vm(self):
-        """Compute the maximum speed of the microtrips"""
-        df = (self.rawData.get_df()[['Seg', 'Speed']]).groupby(['Seg']).max()
-        df.rename(columns={'Speed': 'V_m'}, inplace=True)
-        return df
+        """Compute the maximum speed of the database"""
+        return self.raw_data[['Speed']].max()[0]
 
-    def compute_Vstd(self):
-        """Compute the speed standard deviation of the microtrips"""
-        df = (self.rawData.get_df()[['Seg', 'Speed']]).groupby(['Seg']).std()
-        df.rename(columns={'Speed': 'V_std'}, inplace=True)
-        return df
+    def compute_FuelR(self):
+        """Compute the average fuel rate of the database"""
+        return self.raw_data[['FuelRate']].mean()[0]
+
+    def compute_FuelRr(self):
+        """Compute the average running fuel rate of the database"""
+        return self.raw_data[['FuelRate']][self.raw_data['Speed'] > 0].mean()[0]
 
     def compute_acc(self):
-        """Compute the average positive acceleration of the microtrips"""
-        df = self.rawData.get_df()
-        df = df[['Seg', 'Acc']][df['Acc'] > 0].groupby(['Seg']).mean()
-        return df
+        """Compute the average positive acceleration of the database"""
+        return self.raw_data[['Acc']][self.raw_data['Acc'] > 0].mean()[0]
 
     def compute_dcc(self):
-        """Compute the average deceleration of the microtrips"""
-        df = self.rawData.get_df()
-        df = df[['Seg', 'Acc']][df['Acc'] < 0].groupby(['Seg']).mean()
-        df.rename(columns={'Acc': 'Dcc'}, inplace=True)
-        return df
-
-    def compute_acc_std(self):
-        """Compute the acceleration standard deviation of the microtrips"""
-        df = self.rawData.get_df()
-        df = (df[['Seg', 'Acc']]).groupby(['Seg']).std()
-        df.rename(columns={'Acc': 'Acc_std'}, inplace=True)
-        return df
+        """Compute the average deceleration of the database"""
+        return self.raw_data[['Acc']][self.raw_data['Acc'] < 0].mean()[0]
 
     def compute_a2(self):
-        """Compute the average square acceleration of the microtrips"""
-        df = self.rawData.get_df()
+        """Compute the average square acceleration of the database"""
+        df = self.raw_data
         df['Acc2'] = df['Acc']**2
-        df = (df[['Seg', 'Acc2']]).groupby(['Seg']).mean()
-        df.rename(columns={'Acc2': 'Acc_2'}, inplace=True)
-        return df
+        return self.raw_data[['Acc2']].mean()[0]
+
+    def compute_duration(self):
+        return self.raw_data[['Duration']].sum()[0]
 
     def compute_idle_p(self):
-        """Compute the % of idle time of the microtrips"""
-        df = self.rawData.get_df()
-        df = df[['Seg', 'Duration']][df['Speed'] < 1].groupby(['Seg']).sum()
-        df.rename(columns={'Duration': 'Idle_p'}, inplace=True)
-        return df
+        """Compute the % of idle time of the database"""
+        return self.raw_data[['Duration']][self.raw_data['Speed'] < 1].sum()[0]
 
     def compute_acc_p(self):
-        """Compute the % of acceleration time of the microtrips"""
-        df = self.rawData.get_df()
-        df = df[['Seg', 'Duration']][df['Acc'] > 0.1].groupby(['Seg']).sum()
-        df.rename(columns={'Duration': 'Acc_p'}, inplace=True)
-        return df
+        """Compute the % of acceleration time of the database"""
+        return self.raw_data[['Duration']][self.raw_data['Acc'] > 0.1].sum()[0]
 
     def compute_cru_p(self):
-        """Compute the % of crusing time of the microtrips"""
-        df = self.rawData.get_df()
-        df = df[['Seg', 'Duration']][(df['Acc'] > -0.1) & (df['Acc'] < 0.1) & (df['Speed'] > 20)].groupby(['Seg']).sum()
-        df.rename(columns={'Duration': 'Cru_p'}, inplace=True)
-        return df
+        """Compute the % of crusing time of the database"""
+        return self.raw_data[['Duration']][(self.raw_data['Acc'] > -0.1) & (self.raw_data['Acc'] < 0.1) & (self.raw_data['Speed'] > 20)].sum()[0]
 
     def compute_cre_p(self):
-        """Compute the % of creeping time of the microtrips"""
-        df = self.rawData.get_df()
-        df = df[['Seg', 'Duration']][(df['Acc'] > -0.1) & (df['Acc'] < 0.1) & (df['Speed'] < 20)].groupby(['Seg']).sum()
-        df.rename(columns={'Duration': 'Cre_p'}, inplace=True)
-        return df
+        """Compute the % of creeping time of the database"""
+        return self.raw_data[['Duration']][(self.raw_data['Acc'] > -0.1) & (self.raw_data['Acc'] < 0.1) & (self.raw_data['Speed'] < 20)].sum()[0]
 
     def compute_dcc_p(self):
-        """Compute the % of deceleration time of the microtrips"""
-        df = self.rawData.get_df()
-        df = df[['Seg', 'Duration']][(df['Acc'] < -0.1)].groupby(['Seg']).sum()
-        df.rename(columns={'Duration': 'Dcc_p'}, inplace=True)
-        return df
-
-
+        """Compute the % of deceleration time of the database"""
+        return self.raw_data[['Duration']][self.raw_data['Acc'] < -0.1].sum()[0]
 
 def findAcluster(a):
     if a < -1.4:
