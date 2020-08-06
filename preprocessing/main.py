@@ -19,6 +19,13 @@ fc = find_files("../data/raw_data/stm/", column_names)
 
 dataControler = RawDataController(fc)
 
+dataControler.build_microtrips(250)
+dataControler.combine_microtrips()
+
+
+
+
+
 
 
 

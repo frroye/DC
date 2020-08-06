@@ -43,6 +43,7 @@ class RawData:
         self.add_distance()
         self.add_acc()
         self.add_dayofweek()
+        self.drop_bad_duration(1)
         return self.df
 
     def set_data_type(self):
@@ -69,19 +70,6 @@ class RawData:
         """Calculate the time between two point """
         self.df["Duration"] = (self.df["DateTime"] - self.df.DateTime.shift()).dt.total_seconds()
 
-    def add_distance(self):
-        """Compute the distance between the point and the next one and put it in the column DeltaDistance.
-        If the column Distance already exists, we suppose it is the cumulative distance: hence the distance between a point
-        and the previous is compute.
-         If the column Distance doesn't alredy exist, the travelled distance is compute using the average speed.
-
-        if 'Distance' in list(self.df.columns):
-            self.df["DeltaDistance"] = self.df["Distance"] - self.df.Distance.shift()
-            self.df.drop(columns=["Distance"])
-        else:
-        """
-        self.calculate_distance()
-
     def add_acc(self):
         """Calculate the acceleration if it is not already in the df.
         Given that the speed is in km/h and that the time is in second, the computed acceleration is in m/s^2"""
@@ -89,7 +77,7 @@ class RawData:
             kmh2ms = 3.6
             self.df['Acc'] = (self.df["Speed"] - self.df.Speed.shift()) / self.df['Duration']/kmh2ms
 
-    def calculate_distance(self):
+    def add_distance(self):
         """Calculate the distance between two point using the average speed and time"""
         kmh2ms = 3.6
         self.df["DeltaDistance"] = self.df["Speed"]/kmh2ms  # conversion of the speed from km/h to m/s
@@ -97,6 +85,15 @@ class RawData:
 
     def add_dayofweek(self):
         self.df["DayOfWeek"] = self.df["DateTime"].dt.dayofweek
+
+    def drop_bad_duration(self, pas):
+        #self.df.Speed.shift(
+        self.df['cut'] = False
+        #self.df['cut'][self.df["Duration"] > pas] = True
+        self.df.loc[(self.df.Duration> pas), 'cut'] =True
+        print(self.df[self.df["Duration"] > pas])
+        print(self.df[["cut", 'Duration']][self.df['cut'] == True])
+        self.df = self.df.drop(self.df[self.df["Duration"] > pas].index)
 
     def segment(self, len_segment):
         """ Divide the data into microtrips (or segment) of desire length.

@@ -1,6 +1,7 @@
 
 from preprocessing.RawData import RawData
 from preprocessing.MicrotripsData import MicrotripsData
+import pandas as pd
 
 from os import listdir
 from os.path import isfile, join
@@ -10,7 +11,7 @@ class RawDataController:
     def __init__(self, raw_data_file,):
         self.raw_data_file = raw_data_file
         self.clean_data = self.cleanData()
-        self.microtrip_files = self.build_microtrips(250)
+        self.microtrip_data = []
 
     def cleanData(self):
         clean_data = []
@@ -24,17 +25,32 @@ class RawDataController:
         return clean_data
 
     def build_microtrips(self, segment_lenght):
-        microtrip_files = []
         for data in self.clean_data:
             data.segment(segment_lenght)
-            microtrip_data = MicrotripsData(data)
-            file_name = "../data/microtrips/" + data.file.name + "_m" + data.file.extension
-            microtrip_data.save_csv(file_name)
-            microtrip_files.append(file_name)
-        return microtrip_files
+            self.microtrip_data.append(MicrotripsData(data))
 
+    def save_microtrips(self):
+        for data in self.microtrip_data:
+            file_name = "../data/microtrips/" + data.file.name + "_m" + ".csv"
+            data.save_csv(file_name)
 
-def find_files(main_path, column_names):
+    def combine_microtrips(self):
+        df = []
+        for data in self.microtrip_data:
+            df_ = data.df
+            df_['File'] = data.file.name
+            #df_.set_index(['File', 'Seg'])
+            df.append(df_)
+        df = pd.concat(df, axis=0, join='outer', ignore_index=False, keys=None,
+                       levels=None, names=None, verify_integrity=False, copy=True)
+
+        df = df.reset_index()
+        file_name = "../data/microtrips/" + "combined_microtrips" + ".csv"
+        df.to_csv(file_name, sep=";")
+        return df
+
+def find_files(main_path, column_names = []):
+    """Look into a directory and return a list of files objects"""
     main_path = main_path
     files = []
     onlyfiles = [f for f in listdir(main_path) if isfile(join(main_path, f))]

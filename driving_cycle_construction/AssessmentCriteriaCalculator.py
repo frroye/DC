@@ -25,7 +25,9 @@ class AssessmentCriteriaCalculator:
 
         self.raw_data = pd.concat(self.raw_data, axis=0, join='outer', ignore_index=False, keys=None,
                            levels=None, names=None, verify_integrity=False, copy=True)
+        print(self.raw_data['Duration'].mean())
         self.AC = self.summarize_AC()
+
 
     def get_file(self, path="../data/clean_data/"):
         onlyfiles = [f for f in listdir(path) if isfile(join(path, f))]
@@ -55,7 +57,6 @@ class AssessmentCriteriaCalculator:
 
     def save_csv(self):
         file_name = "../data/assessment_criteria/" + 'assessment_criteria' + ".csv"
-        print(self.AC)
         #pd.DataFrame.from_dict(self.AC).to_csv(file_name, sep=";")
         with open(file_name, 'w') as f:
             for key in self.AC.keys():
