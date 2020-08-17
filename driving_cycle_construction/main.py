@@ -1,31 +1,45 @@
-
-
+import random
+import pandas as pd
+from preprocessing.MicrotripData import MicrotripData
 from driving_cycle_construction.AssessmentCriteriaCalculator import AssessmentCriteriaCalculator
-from driving_cycle_construction.TransitionMatrixController import TransitionMatrixController
-from driving_cycle_construction.DrivingCycleController import DrivingCycleConstructor, DrivingCyclesController
+from driving_cycle_construction.DrivingCycle import DrivingCycle, DrivingCyclesController
 from driving_cycle_construction.DCParametersCalculator import DCParametersCalculator
 from preprocessing.RawDataController import File
-
-
-#  generate the assessment criteria
-ac_calculator = AssessmentCriteriaCalculator()
-ac_calculator.summarize_AC()
-ac_calculator.save_csv()
-assessment_criteria = ac_calculator.get_AC()
-
-
-#  generate the transition matrix
+""""""
+cycle_len = 600
+"""
+#driving_cycle = DrivingCycle(file, transition_matrix, dc_len=cycle_len, delta_speed=5)
+#driving_cycle.get_full_driving_cycle()
+#driving_cycle.visualize_dc('Speed')
 file = File("../data/clustered_microtrips/", "V_Acc_FuelR", ".csv", )
-tmc = TransitionMatrixController(file)
-transition_matrix = tmc.get_transition_matrix()
 
-cycle_len = 100
+dc_controller = DrivingCyclesController(file)
+dc = DrivingCycle(dc_controller.segment_df, dc_controller.transition_matrix, cycle_len, 20, 0)
 
-dc_constructor = DrivingCycleConstructor(file, transition_matrix, 100)
-dc_ = dc_constructor.generate_DC()
+print(dc.get_parameters())
+full_data = []
+full_data.append(dc.get_full_driving_cycle())
+ac_calculator = AssessmentCriteriaCalculator(full_data)
+print(ac_calculator.get_parameters())
+#print(dc_controller.generate_cycle(iteration=3, dc_len=600, delta_speed=10))
 
-dc_controller = DrivingCyclesController(dc_constructor.df_segment, assessment_criteria)
+#print(driving_cycle.get_parameters())
+"""
+pd.set_option('display.max_columns', None)
+df = pd.read_csv("test.csv",
+                 sep=';', encoding='latin-1')
 
-dc_parameter_calculator = DCParametersCalculator(dc_controller)
-print(dc_parameter_calculator.compute_Vm())
+microtripData = MicrotripData(None)
+microtripData.verification(df)
+parameter_1 = microtripData.summarize_rawData()
+print(parameter_1)
+dc_parameter_calculator =DCParametersCalculator(parameter_1, 0)
+print(dc_parameter_calculator.get_parameters())
+
+full_data = []
+full_data.append(df)
+ac = AssessmentCriteriaCalculator()
+print(ac.get_parameters())
+
+
 

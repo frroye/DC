@@ -10,7 +10,8 @@ import csv
 
 class AssessmentCriteriaCalculator:
 
-    def __init__(self, raw_data=None, clean_data_path="../data/clean_data/"):
+    def __init__(self, raw_data=None, clean_data_path="../data/clean_data/", id=0):
+        self.id = id
         if raw_data is not None:
             self.raw_data = raw_data
 
@@ -25,30 +26,35 @@ class AssessmentCriteriaCalculator:
 
         self.raw_data = pd.concat(self.raw_data, axis=0, join='outer', ignore_index=False, keys=None,
                            levels=None, names=None, verify_integrity=False, copy=True)
-        print(self.raw_data['Duration'].mean())
         self.AC = self.summarize_AC()
 
 
+    def get_parameters(self):
+        return self.AC
     def get_file(self, path="../data/clean_data/"):
         onlyfiles = [f for f in listdir(path) if isfile(join(path, f))]
         return onlyfiles
 
     def summarize_AC(self):
         total_time = self.compute_duration()
-        p_v = {'V': self.compute_V(),
+        p_v = {'id': self.id,
+               'V': self.compute_V(),
                'Vr': self.compute_Vr(),
                'Vm': self.compute_Vm(),
+               'V_std': self.compute_V_std(),
                'FuelR': self.compute_FuelR(),
-               'FuelRr': self.compute_FuelRr(),
+               'FuelR_r': self.compute_FuelR_r(),
+               'FuelR_std': self.compute_FuelR_std(),
                'Acc': self.compute_acc(),
                'Dcc': self.compute_dcc(),
                'Acc2': self.compute_a2(),
+               'Acc_std': self.compute_Acc_std(),
                'Idle_p': self.compute_idle_p() / total_time,
                'Acc_p': self.compute_acc_p() / total_time,
                'Dcc_p': self.compute_dcc_p() / total_time,
                'Cru_p': self.compute_cru_p() / total_time,
                'Cre_p': self.compute_cre_p() / total_time,
-               'SAFD': self.compute_SAFD()
+               #'SAFD': self.compute_SAFD()
                }
         return p_v
 
@@ -89,13 +95,21 @@ class AssessmentCriteriaCalculator:
         """Compute the maximum speed of the database"""
         return self.raw_data[['Speed']].max()[0]
 
+    def compute_V_std(self):
+        """Compute the standard deviation of speed of the database"""
+        return self.raw_data[['Speed']].std()[0]
+
     def compute_FuelR(self):
         """Compute the average fuel rate of the database"""
         return self.raw_data[['FuelRate']].mean()[0]
 
-    def compute_FuelRr(self):
+    def compute_FuelR_r(self):
         """Compute the average running fuel rate of the database"""
         return self.raw_data[['FuelRate']][self.raw_data['Speed'] > 0].mean()[0]
+
+    def compute_FuelR_std(self):
+        """Compute the standard deviation of average fuel rate of the database"""
+        return self.raw_data[['FuelRate']].std()[0]
 
     def compute_acc(self):
         """Compute the average positive acceleration of the database"""
@@ -110,6 +124,10 @@ class AssessmentCriteriaCalculator:
         df = self.raw_data
         df['Acc2'] = df['Acc']**2
         return self.raw_data[['Acc2']].mean()[0]
+
+    def compute_Acc_std(self):
+        """Compute the standard deviation of acceleration of the database"""
+        return self.raw_data[['Acc']].std()[0]
 
     def compute_duration(self):
         return self.raw_data[['Duration']].sum()[0]

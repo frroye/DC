@@ -9,7 +9,8 @@ import numpy as np
 
 class RawData:
     def __init__(self, file):
-        self.file = file
+        self.file = file  # File object
+        self.pace = 1
         self.column_names = file.column_name
         self.df = self.import_csv()
 
@@ -24,6 +25,7 @@ class RawData:
         The first row of the csv data need to be the column name.
         """
         self.column_names.remove('DateTime')
+        print(self.file.name)
         dict_column_f = {i: lambda x: (x.replace(',', '.')) for i in self.column_names}
         df = pd.read_csv(self.file.get_full_path(), sep=';', encoding='latin-1', converters=dict_column_f)
         self.column_names.append('DateTime')
@@ -43,7 +45,6 @@ class RawData:
         self.add_distance()
         self.add_acc()
         self.add_dayofweek()
-        self.drop_bad_duration(1)
         return self.df
 
     def set_data_type(self):
@@ -84,16 +85,27 @@ class RawData:
         self.df["DeltaDistance"] = self.df["DeltaDistance"] * self.df['Duration']
 
     def add_dayofweek(self):
+        """Add the day of the week to the df."""
         self.df["DayOfWeek"] = self.df["DateTime"].dt.dayofweek
 
-    def drop_bad_duration(self, pas):
-        #self.df.Speed.shift(
+    def separate_races(self):
+        """ Separate the self.df according to the races. The races are separated base on the Duration of a row.
+        If the duration is bigger than the pace, than a new dataframe is created. It return a list of dataframe, with
+        a dataframe per race."""
+        self.drop_extra_row()
         self.df['cut'] = False
-        #self.df['cut'][self.df["Duration"] > pas] = True
-        self.df.loc[(self.df.Duration> pas), 'cut'] =True
-        print(self.df[self.df["Duration"] > pas])
-        print(self.df[["cut", 'Duration']][self.df['cut'] == True])
-        self.df = self.df.drop(self.df[self.df["Duration"] > pas].index)
+        self.df.loc[(self.df.Duration > self.pace), 'cut'] = True
+        cut_index = self.df.index[self.df.cut == True].tolist()
+        cut_index.insert(0, self.df.first_valid_index())
+        cut_index.append(self.df.last_valid_index())
+        df_ = []
+        for i, j in zip(cut_index[0:-1], cut_index[1:]):
+            df = self.df.iloc[i:j, :]
+            if len(df) > 0:
+                df = df.drop(df[df["Duration"] > self.pace].index)
+                df = df.drop(columns="cut")
+                df_.append(df)
+        return df_
 
     def segment(self, len_segment):
         """ Divide the data into microtrips (or segment) of desire length.
@@ -101,5 +113,17 @@ class RawData:
         self.drop_extra_row()
         self.df["Seg"] = (self.df["DeltaDistance"].cumsum() / len_segment).apply(np.floor)
 
+    def segment_all(self, len_segment, seg_count):
+        """Segment the raw data into smaller segment (microtrips) of equal length. Separate the different races
+        contained in the df, and taking into consideration the segment count."""
+        df_ = self.separate_races()
+        for df in df_:
+            df["Seg"] = (df["DeltaDistance"].cumsum() / len_segment + seg_count).apply(np.floor)
+            seg_count = df['Seg'].max()
+        self.df = pd.concat(df_, axis=0, join='outer', ignore_index=False, keys=None,
+                                  levels=None, names=None, verify_integrity=False, copy=True)
+        return seg_count+1
+
     def save_csv(self, file_name):
+        """Save the dataframe in csv file following file_name path."""
         self.df.to_csv(file_name, sep=";", index=False)

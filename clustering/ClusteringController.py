@@ -1,28 +1,14 @@
 import pandas as pd
-from preprocessing.RawDataController import File
-#import rpy2
-#import rpy2.robjects as robjects
-#from rpy2.robjects.packages import importr
-import os
-#from rpy2.robjects import pandas2ri
-#pandas2ri.activate()
-
-import numpy as np
-# k-means clustering
 from numpy import unique
-from numpy import where
-from sklearn.datasets import make_classification
 from sklearn.cluster import KMeans
 from matplotlib import pyplot
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
-
 from preprocessing.RawDataController import find_files
-from mpl_toolkits.mplot3d import Axes3D
 
 
-class ClusteringController():
+class ClusteringController:
 
     def __init__(self, files=[], path="../data/microtrips/"):
         self.path = path  # directory containing microtrip files
@@ -45,14 +31,15 @@ class ClusteringController():
         df = []
         for file in self.microtrips_files:
             df_ = self.import_csv2pd(file)
-            df_['File'] = file.name
-            df_.set_index(['File', 'Seg'])
+            #df_['File'] = file.name
+            #df_.set_index(['File', 'Seg'])
             df.append(df_)
+            print(file.name)
         df = pd.concat(df, axis=0, join='outer', ignore_index=False, keys=None,
                        levels=None, names=None, verify_integrity=False, copy=True)
 
-        df = df.reset_index()
-        print(df)
+        #df = df.reset_index()
+        df = df.drop(columns='Seg')
         return df
 
     def get_microtrips_number(self):
@@ -60,7 +47,10 @@ class ClusteringController():
         return len(self.df.index)
 
     def PCA(self, n_component, columns):
-        """ Transform the data into principal components using PCA."""
+        """ n_component : number of component of the PCA.
+        columns: columns used to execute the PCA
+        Transform the data into principal components using PCA.
+        Return a dataframe df containing the microtrips described by their new (n_component) component."""
         df = self.df[columns]  # select only columns required for PCA
         df = StandardScaler().fit_transform(df)  # Standardized the features
         pca = PCA(n_components=n_component)
@@ -73,7 +63,6 @@ class ClusteringController():
             i += 1
         df = pd.DataFrame(pca)
         df.columns = columns
-        self.df = df
         return df
 
     def kmeans(self, nb_clusters):
@@ -89,17 +78,19 @@ class ClusteringController():
         self.df["cluster"] = yhat
         self.clustered_df["cluster"] = yhat
 
-    def select_clustering_columns(self, col):
+    def select_clustering_columns(self, col, PCA=False, n_component=0.80):
         """Select the columns that will be use in the clustering"""
-        df = self.df[col]
-        df = StandardScaler().fit_transform(df)  # Standardized the features
-        df = pd.DataFrame(df)
-        df.columns = col
-        self.clustered_df = df
+        if PCA:
+            self.clustered_df = self.PCA(n_component, col)
+        else:
+            df = self.df[col]
+            df = StandardScaler().fit_transform(df)  # Standardized the features
+            df = pd.DataFrame(df)
+            df.columns = col
+            self.clustered_df = df
 
     def visualize_cluster2D(self, xlabel=None, ylabel=None, titre="Clustering"):
         """ Plot the clusters in 2D according do xlabel and ylabel dimensions/columns"""
-        # nbCluster = getNbCluster(df_segment)
         if xlabel is None:
             xlabel = self.df.columns[0]
 
@@ -132,7 +123,6 @@ class ClusteringController():
                  'k']
         fig = plt.figure()
         ax = plt.axes(projection="3d")
-        #ax.plot3D(self.df['V'], self.df['Acc'], zs=self.df['FuelR'], c=color[0])
         for i in self.clusters:
             x = self.clustered_df[self.clustered_df['cluster'] == i][xlabel]
             y = self.clustered_df[self.clustered_df['cluster'] == i][ylabel]
