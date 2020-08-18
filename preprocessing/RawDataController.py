@@ -17,6 +17,11 @@ class RawDataController:
         self.clean_data = self.cleanData()
         self.microtrip_data = []
 
+    def preprocess(self, microtrips_len):
+        self.build_microtrips(microtrips_len)
+        self.save_combine_microtrips()
+        #self.save_clean_data()
+
     def cleanData(self):
         """ For every raw data file in self.raw_data_file, initialize a RawData() object, clean it, prepare it
         and add it to the clean data list clean_data. Return the clean data list. """
@@ -63,7 +68,7 @@ class RawDataController:
             file_name = "../data/microtrips/" + data.file.name + "_m" + ".csv"
             data.save_csv(file_name)
 
-    def save_combine_microtrips(self):
+    def save_combine_microtrips(self, file_name="combined_microtrips", path="../data/microtrips/"):
         """Combine the microtrip data of the microtrip_data list into one big dataframe and save it in csv format in the
         microtrips directory."""
         df = []
@@ -74,7 +79,7 @@ class RawDataController:
         df = pd.concat(df, axis=0, join='outer', ignore_index=False, keys=None,
                        levels=None, names=None, verify_integrity=False, copy=True)
 
-        file_name = "../data/microtrips/" + "combined_microtrips" + ".csv"
+        file_name = path + file_name + ".csv"
         df.to_csv(file_name, sep=";")
         return df
 

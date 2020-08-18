@@ -131,9 +131,9 @@ class ClusteringController:
         pyplot.show()
 
 
-    def save_csv(self, file_name):
+    def save_csv(self, file_name, path = "../data/clustered_microtrips/"):
         """ Save the df containing the clusters in csv file"""
         if 'cluster' in self.df.columns:
-            file_name = "../data/clustered_microtrips/" + file_name + ".csv"
+            file_name = path + file_name + ".csv"
             self.df.to_csv(file_name, sep=";")
 
