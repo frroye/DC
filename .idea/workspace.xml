@@ -2,181 +2,92 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd97c83b-a0ee-4d32-a31b-443f9cd36fc1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clustering/ClusteringController.py" beforeDir="false" afterPath="$PROJECT_DIR$/clustering/ClusteringController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/clean_data/ID_31823_20181112_113559.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/clean_data/ID_31823_20181112_113559.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/microtrips/combined_microtrips.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/microtrips/combined_microtrips.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preprocessing/RawDataController.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocessing/RawDataController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preprocessing/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocessing/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/DC.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clustering/ClusteringController.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clustering/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clustering/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/assessment_criteria/assessment_criteria.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/clean_data/ID_31823_20181110_104529.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/clean_data/ID_31823_20181110_192040.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/clean_data/ID_31823_20181112_113559.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/clean_data/ID_37060_20181110_015918.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/clean_data/ID_37060_20181112_112249.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/clean_data/xID_30095_20181110.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/clustered_microtrips/PCA_7clusters.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/clustered_microtrips/test_2.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/microtrips/combined_microtrips.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/raw_data/stm/ID_31823_20181110_104529.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/raw_data/stm/ID_31823_20181110_192040.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/raw_data/stm/ID_31823_20181112_113559.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/raw_data/stm/ID_37060_20181110_015918.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/raw_data/stm/ID_37060_20181112_112249.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/raw_data/stm/xID_30095_20181110.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving_cycle_construction/AssessmentCriteriaCalculator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving_cycle_construction/DCParametersCalculator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving_cycle_construction/DrivingCycle.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving_cycle_construction/TransitionMatrixController.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving_cycle_construction/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving_cycle_construction/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving_cycle_construction/test.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/filtering/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/filtering/mapmatching.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/poubelle/DB.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/poubelle/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/poubelle/main_data_importation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/poubelle/test.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/preprocessing/MicrotripData.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/preprocessing/RawData.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/preprocessing/RawDataController.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/preprocessing/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/preprocessing/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/ProjectController.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/test_2/data/clustered_microtrips/test_2.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/test_2/data/microtrips/microtrips250.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/test_2/data/raw_data/ID_31823_20181112_113559.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/psycopg2_addition/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/psycopg2_addition/exception.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/number_of_iterations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test2.1400_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test2.1500_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test2.50_29.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test3.100_29.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test3.1_29.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test3.200_29.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test5100_0.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test5100_29.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test510_0.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test510_29.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test51200_0.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test51200_29.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test51400_0.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test51400_29.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test51500_29.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test51_0.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test51_29.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test5200_0.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test5200_29.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test5500_0.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test5500_29.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test550_0.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test550_29.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test55_0.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test5700_0.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test5700_29.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test5900_0.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/number_of_iterations/test5900_29.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/performance/performance_nb_iteration.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/questions.docx" beforeDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-1228584168">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.11" value="1" />
-          <entry key="project.open.time.12" value="2" />
-          <entry key="project.open.time.13" value="1" />
-          <entry key="project.open.time.15" value="1" />
-          <entry key="project.open.time.16" value="1" />
-          <entry key="project.open.time.19" value="1" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.22" value="1" />
-          <entry key="project.open.time.25" value="1" />
-          <entry key="project.open.time.33" value="1" />
-          <entry key="project.open.time.38" value="1" />
-          <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.6" value="5" />
-          <entry key="project.open.time.7" value="3" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="24" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="py" value="153" />
-          <entry key="sql" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Python" value="153" />
-          <entry key="SQL" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="dummy" value="50" />
-          <entry key="py" value="52995" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="PLAIN_TEXT" value="50" />
-          <entry key="Python" value="52995" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/preprocessing/RawDataController.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="54" column="36" lean-forward="true" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
-              <folding>
-                <element signature="e#1#42#0" expanded="true" />
-                <marker date="1597769352718" expanded="true" signature="173:215" ph="..." />
-                <marker date="1597769352718" expanded="true" signature="279:284" ph="..." />
-                <marker date="1597769352718" expanded="true" signature="656:779" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clustering/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="23" column="47" lean-forward="true" selection-start-line="12" selection-end-line="23" selection-end-column="47" />
-              <folding>
-                <element signature="e#0#45#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/driving_cycle_construction/DCParametersCalculator.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
-              <folding>
-                <marker date="1596982896403" expanded="true" signature="932:2176" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/preprocessing/MicrotripData.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3162">
-              <caret line="187" selection-start-line="187" selection-end-line="187" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/driving_cycle_construction/DrivingCycle.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3621">
-              <caret line="219" column="32" selection-start-line="219" selection-start-column="32" selection-end-line="219" selection-end-column="32" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-                <marker date="1597337414817" expanded="true" signature="463:464" ph="..." />
-                <marker date="1597337414817" expanded="true" signature="463:469" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/ProjectController.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-                <marker date="1597769397318" expanded="true" signature="160:165" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clustering/ClusteringController.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="129" column="45" lean-forward="true" selection-start-line="129" selection-start-column="45" selection-end-line="129" selection-end-column="45" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/projects/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="24" column="3" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/preprocessing/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
-              <folding>
-                <element signature="e#70#115#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -197,106 +108,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/preprocessing/main_data_importation.py" />
-        <option value="$PROJECT_DIR$/psycopg2_addition/__init__.py" />
-        <option value="$PROJECT_DIR$/psycopg2_addition/exception.py" />
-        <option value="$PROJECT_DIR$/preprocessing/Preprocessing.py" />
-        <option value="$PROJECT_DIR$/preprocessing/__init__.py" />
-        <option value="$PROJECT_DIR$/preprocessing/DB.py" />
-        <option value="$PROJECT_DIR$/clustering/__init__.py" />
-        <option value="$PROJECT_DIR$/clustering/pam.py" />
-        <option value="$PROJECT_DIR$/preprocessing/import_export.py" />
-        <option value="$PROJECT_DIR$/driving_cycle_construction/TransitionMatrix.py" />
-        <option value="$PROJECT_DIR$/driving_cycle_construction/ParametersCalculator.py" />
-        <option value="$PROJECT_DIR$/driving_cycle_construction/DrivingCycleController.py" />
-        <option value="$PROJECT_DIR$/driving_cycle_construction/TransitionMatrixController.py" />
-        <option value="$PROJECT_DIR$/preprocessing/test_nb_iterations.py" />
-        <option value="$PROJECT_DIR$/driving_cycle_construction/DCParametersCalculator.py" />
-        <option value="$PROJECT_DIR$/preprocessing/MicrotripsData.py" />
-        <option value="$PROJECT_DIR$/driving_cycle_construction/AssessmentCriteriaCalculator.py" />
-        <option value="$PROJECT_DIR$/driving_cycle_construction/main.py" />
-        <option value="$PROJECT_DIR$/preprocessing/MicrotripData.py" />
-        <option value="$PROJECT_DIR$/filtering/mapmatching.py" />
-        <option value="$PROJECT_DIR$/preprocessing/RawData.py" />
-        <option value="$PROJECT_DIR$/clustering/main.py" />
-        <option value="$PROJECT_DIR$/driving_cycle_construction/DrivingCycle.py" />
-        <option value="$PROJECT_DIR$/results/number_of_iterations/number_of_iterations.py" />
-        <option value="$PROJECT_DIR$/preprocessing/main.py" />
-        <option value="$PROJECT_DIR$/clustering/ClusteringController.py" />
-        <option value="$PROJECT_DIR$/preprocessing/RawDataController.py" />
-        <option value="$PROJECT_DIR$/projects/ProjectController.py" />
-        <option value="$PROJECT_DIR$/projects/main.py" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1068" />
-    <option name="width" value="1101" />
-    <option name="height" value="1392" />
-  </component>
+  <component name="ProjectId" id="1j1RMfXfacEeelA1ASX6rMl46Yd" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="DC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DC" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DC" type="462c0819:PsiDirectoryNode" />
-              <item name="clustering" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DC" type="462c0819:PsiDirectoryNode" />
-              <item name="driving_cycle_construction" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DC" type="462c0819:PsiDirectoryNode" />
-              <item name="filtering" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DC" type="462c0819:PsiDirectoryNode" />
-              <item name="preprocessing" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DC" type="462c0819:PsiDirectoryNode" />
-              <item name="projects" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DC" type="462c0819:PsiDirectoryNode" />
-              <item name="results" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DC" type="462c0819:PsiDirectoryNode" />
-              <item name="results" type="462c0819:PsiDirectoryNode" />
-              <item name="number_of_iterations" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -307,18 +128,6 @@
       <recent name="C:\Users\Nathalie\Desktop\mobilite\DC" />
       <recent name="C:\Users\Nathalie\Desktop\mobilite\DC\poubelle" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Python.main (3)">
     <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -427,11 +236,11 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.main" />
       <item itemvalue="Python.main (1)" />
       <item itemvalue="Python.main (2)" />
-      <item itemvalue="Python.number_of_iterations" />
       <item itemvalue="Python.main (3)" />
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.number_of_iterations" />
     </list>
     <recent_temporary>
       <list>
@@ -443,6 +252,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -456,50 +266,14 @@
     </task>
     <servers />
   </component>
-  <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1455" height="935" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13610719" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.45442876" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39666238" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3294423" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.3294423" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17912553" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.39537868" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3974359" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3294423" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.3294423" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout-to-restore>
-  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="421" y="95" key="FileChooserDialogImpl" timestamp="1602969633667">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1602969633667" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -511,366 +285,5 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/psycopg2_addition/exception.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/psycopg2/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1802">
-          <caret line="124" selection-start-line="124" selection-end-line="124" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/psycopg2/extensions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3060">
-          <caret line="187" selection-start-line="187" selection-end-line="187" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/re.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5321">
-          <caret line="316" selection-start-line="316" selection-end-line="316" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/sre_parse.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4182">
-          <caret line="246" selection-start-line="246" selection-end-line="246" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/pandas/util/_validators.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="226" selection-start-line="226" selection-end-line="226" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="1663" selection-start-line="1663" selection-end-line="1663" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/psycopg2_addition/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="15" selection-start-column="15" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/pandas/core/dtypes/cast.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="675" selection-start-line="675" selection-end-line="675" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/pandas/core/internals/managers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="530" selection-start-line="530" selection-end-line="530" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/pandas/core/reshape/merge.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="1751" selection-start-line="1751" selection-end-line="1751" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/pandas/core/accessor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="170" selection-start-line="170" selection-end-line="170" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/rpy2/robjects/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/rpy2/rinterface/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="63" column="35" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/poubelle/DB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-930">
-          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clustering/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/preprocessing/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/poubelle/main_data_importation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="51" column="7" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/poubelle/test.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/transitionMatrix/utils/preprocessing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/mpl_toolkits/mplot3d/axes3d.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38981">
-          <caret line="2315" selection-start-line="2315" selection-end-line="2315" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/pandas/core/internals/blocks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="86" selection-start-line="86" selection-end-line="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/pandas/core/frame.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="3939" selection-start-line="3939" selection-end-line="3939" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/pandas/core/series.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="867" selection-start-line="867" selection-end-line="867" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/pandas/core/generic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="1478" selection-start-line="1478" selection-end-line="1478" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2018.2/system/python_stubs/-1348899713/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="3167" column="8" selection-start-line="3167" selection-start-column="8" selection-end-line="3167" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/pandas/core/indexes/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="2657" selection-start-line="2657" selection-end-line="2657" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/preprocessing/test_nb_iterations.py" />
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/pandas/core/ops.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="1744" selection-start-line="1744" selection-end-line="1744" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/pandas/core/indexing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="2069" selection-start-line="2069" selection-end-line="2069" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/driving_cycle_construction/TransitionMatrixController.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/pandas/core/reshape/concat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="243" selection-start-line="243" selection-end-line="243" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/driving_cycle_construction/AssessmentCriteriaCalculator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
-          <caret line="88" selection-start-line="88" selection-end-line="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/preprocessing/RawData.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/pandas/io/parsers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="1142" selection-start-line="1142" selection-end-line="1142" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/matplotlib/projections/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/driving_cycle_construction/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="36" column="47" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/filtering/mapmatching.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/driving_cycle_construction/DCParametersCalculator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
-          <folding>
-            <marker date="1596982896403" expanded="true" signature="932:2176" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/preprocessing/MicrotripData.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3162">
-          <caret line="187" selection-start-line="187" selection-end-line="187" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/driving_cycle_construction/DrivingCycle.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3621">
-          <caret line="219" column="32" selection-start-line="219" selection-start-column="32" selection-end-line="219" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <marker date="1597337414817" expanded="true" signature="463:464" ph="..." />
-            <marker date="1597337414817" expanded="true" signature="463:469" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clustering/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="23" column="47" lean-forward="true" selection-start-line="12" selection-end-line="23" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/results/number_of_iterations/number_of_iterations.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="43" column="79" selection-start-line="43" selection-start-column="79" selection-end-line="43" selection-end-column="79" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/preprocessing/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
-          <folding>
-            <element signature="e#70#115#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/preprocessing/RawDataController.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="54" column="36" lean-forward="true" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
-          <folding>
-            <element signature="e#1#42#0" expanded="true" />
-            <marker date="1597769352718" expanded="true" signature="173:215" ph="..." />
-            <marker date="1597769352718" expanded="true" signature="279:284" ph="..." />
-            <marker date="1597769352718" expanded="true" signature="656:779" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clustering/ClusteringController.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="129" column="45" lean-forward="true" selection-start-line="129" selection-start-column="45" selection-end-line="129" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/ProjectController.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <marker date="1597769397318" expanded="true" signature="160:165" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="24" column="3" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>
